@@ -1388,6 +1388,8 @@ background:#f5e6ea;
 
     .profile-card {
         padding: 24px;
+        width: 100%;
+        max-width: 100%;
     }
 
     .form-column {
@@ -1415,6 +1417,73 @@ background:#f5e6ea;
     .sets-grid {
         grid-template-columns: 1fr;
         gap: 16px;
+    }
+
+    .create-set,
+    .edit-container,
+    .profile-page,
+    .statistics-page,
+    .register-section,
+    .error-page,
+    .dashboard,
+    .create-page {
+        padding: 20px 16px;
+    }
+
+    .create-set,
+    .edit-container,
+    .profile-card,
+    .auth-box,
+    .register-card,
+    .statistics-page,
+    .dashboard,
+    .profile-page {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .cards-grid,
+    .sets-grid,
+    .avatar-options,
+    .features-grid,
+    .steps-grid,
+    .stats-grid,
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .input-title,
+    .input-description,
+    .card-input,
+    .register-btn,
+    .save-btn,
+    .create-btn,
+    .logout-btn,
+    .search-btn,
+    .auth-buttons button,
+    .auth-buttons a,
+    .filter-btn,
+    .profile-select,
+    .profile-card input,
+    .profile-card select,
+    .auth-box input {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .header-search {
+        width: 100%;
+    }
+
+    .header-search .search-input-wrapper,
+    .header-search input {
+        width: 100%;
+    }
+
+    .results-table-header,
+    .results-table-row {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1445,6 +1514,402 @@ background:#f5e6ea;
     .register-btn,
     .create-btn {
         padding: 14px;
+    }
+}
+
+/* STUDY PAGE */
+.study-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px 60px;
+}
+
+.study-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.study-header h1 {
+    font-size: 32px;
+    line-height: 1.05;
+    margin: 0;
+}
+
+.back-btn {
+    color: #8c4b5f;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.study-controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.search-wrapper {
+    position: relative;
+    flex: 1;
+    min-width: 240px;
+    max-width: 460px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 14px 18px 14px 46px;
+    border-radius: 999px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8c4b5f;
+    pointer-events: none;
+}
+
+.control-btn,
+.mode-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #8c4b5f;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 18px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+    min-width: 140px;
+    flex: 1 1 180px;
+}
+
+.control-btn:hover,
+.mode-btn:hover {
+    transform: translateY(-1px);
+}
+
+.mode-btn.active {
+    background: #6f394a;
+}
+
+.progress-stats {
+    margin-bottom: 24px;
+}
+
+.stats-info {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    gap: 12px;
+}
+
+.stat-badge {
+    background: #fff;
+    padding: 18px 20px;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.study-mode-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+#quiz-mode,
+#match-mode,
+#wheel-mode,
+#write-mode {
+    background: #fff;
+    padding: 24px;
+    border-radius: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.quiz-options {
+    display: grid;
+    gap: 14px;
+    margin-top: 16px;
+}
+
+.match-board {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.match-column {
+    display: grid;
+    gap: 12px;
+}
+
+.wheel-wrapper {
+    position: relative;
+    display: grid;
+    place-items: center;
+    margin: 20px 0;
+}
+
+.wheel {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff 30%, #f5f0f4 100%);
+    border: 10px solid #8c4b5f;
+    box-shadow: 0 20px 60px rgba(140, 75, 95, 0.18);
+}
+
+.wheel-pointer {
+    width: 0;
+    height: 0;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    border-bottom: 24px solid #8c4b5f;
+    margin: -22px auto 0;
+}
+
+.wheel-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 18px;
+}
+
+.wheel-result {
+    background: #f9f3f5;
+    border-radius: 18px;
+    padding: 18px;
+    margin-top: 18px;
+}
+
+.wheel-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 2000;
+}
+
+.wheel-modal-content {
+    width: 100%;
+    max-width: 520px;
+    background: #fff;
+    border-radius: 22px;
+    padding: 26px;
+}
+
+.wheel-input {
+    width: 100%;
+    min-height: 120px;
+    padding: 16px;
+    border-radius: 18px;
+    border: 1px solid #ddd;
+    resize: vertical;
+}
+
+.write-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-start;
+    margin-top: 18px;
+}
+
+.write-input {
+    flex: 1;
+    min-width: 200px;
+    padding: 14px 18px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.write-check-btn {
+    min-width: 170px;
+}
+
+.flashcard-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 26px;
+}
+
+.flashcard {
+    width: 100%;
+    max-width: 560px;
+    min-height: 360px;
+    perspective: 1200px;
+    position: relative;
+}
+
+.flashcard-front,
+.flashcard-back {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    border-radius: 28px;
+    background: #fff;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+    backface-visibility: hidden;
+    transition: transform 0.6s ease;
+}
+
+.flashcard-front {
+    transform: rotateY(0deg);
+}
+
+.flashcard-back {
+    transform: rotateY(180deg);
+}
+
+.flashcard.flipped .flashcard-front {
+    transform: rotateY(-180deg);
+}
+
+.flashcard.flipped .flashcard-back {
+    transform: rotateY(0deg);
+}
+
+.flashcard-term,
+.flashcard-definition {
+    font-size: 22px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.flip-hint {
+    margin-top: 18px;
+    color: #8c4b5f;
+    font-size: 14px;
+}
+
+.rating-section {
+    display: grid;
+    gap: 14px;
+}
+
+.rating-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(140px, 1fr));
+    gap: 12px;
+}
+
+.rating-btn {
+    padding: 14px 16px;
+    border-radius: 24px;
+    border: none;
+    font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+    .study-container {
+        padding: 20px 30px;
+    }
+
+    .study-header h1 {
+        font-size: 28px;
+    }
+
+    .stats-info {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .match-board {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .study-container {
+        padding: 16px;
+    }
+
+    .study-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-wrapper {
+        max-width: 100%;
+    }
+
+    .control-btn,
+    .mode-btn {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .stats-info {
+        grid-template-columns: 1fr;
+    }
+
+    .flashcard {
+        max-width: 100%;
+    }
+
+    .wheel,
+    .wheel-modal-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .rating-buttons {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .study-container {
+        padding: 12px;
+    }
+
+    .study-header {
+        gap: 12px;
+    }
+
+    .study-header h1 {
+        font-size: 24px;
+    }
+
+    .search-input {
+        padding: 12px 16px 12px 44px;
+    }
+
+    .stats-info,
+    .match-board,
+    .wheel-controls,
+    .rating-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .wheel {
+        width: 100%;
+        max-width: 320px;
+        height: 320px;
     }
 }
 
