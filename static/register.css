@@ -1,0 +1,158 @@
+.register-section{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#8c4b5f,#6f394a);
+padding:40px 20px;
+}
+
+.register-card{
+width:420px;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(20px);
+padding:40px;
+border-radius:20px;
+color:white;
+box-shadow:0 15px 40px rgba(0,0,0,0.2);
+animation:fadeInUp 0.8s ease;
+}
+
+.register-card h2{
+margin-bottom:25px;
+text-align:center;
+}
+
+.input-group{
+position:relative;
+margin-bottom:25px;
+}
+
+.input-group input{
+width:100%;
+padding:12px 10px;
+background:transparent;
+border:none;
+border-bottom:2px solid rgba(255,255,255,0.6);
+color:white;
+outline:none;
+font-size:14px;
+transition:0.3s;
+}
+
+.input-group label{
+position:absolute;
+left:10px;
+top:12px;
+color:rgba(255,255,255,0.7);
+font-size:14px;
+transition:0.3s;
+pointer-events:none;
+}
+
+.input-group input:focus{
+border-bottom:2px solid white;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label{
+top:-10px;
+font-size:12px;
+color:white;
+}
+
+.password-group{
+position:relative;
+}
+
+.toggle-password{
+position:absolute;
+right:10px;
+top:12px;
+cursor:pointer;
+font-size:14px;
+}
+
+.register-btn{
+width:100%;
+padding:14px;
+border:none;
+border-radius:30px;
+background:white;
+color:#8c4b5f;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+position:relative;
+overflow:hidden;
+}
+
+.register-btn:hover{
+background:#f2e9ea;
+transform:scale(1.03);
+}
+
+.register-btn.loading{
+pointer-events:none;
+opacity:0.8;
+}
+
+.register-btn.loading::after{
+content:"";
+position:absolute;
+width:18px;
+height:18px;
+border:3px solid #8c4b5f;
+border-top:3px solid transparent;
+border-radius:50%;
+animation:spin 0.7s linear infinite;
+right:20px;
+top:50%;
+transform:translateY(-50%);
+}
+
+.login-link{
+text-align:center;
+margin-top:20px;
+font-size:14px;
+}
+
+.login-link a{
+color:white;
+text-decoration:underline;
+}
+
+@media (max-width: 768px) {
+    .register-section {
+        padding: 30px 15px;
+    }
+
+    .register-card {
+        width: 100%;
+        max-width: 420px;
+        padding: 30px;
+    }
+
+    .input-group input {
+        font-size: 15px;
+    }
+
+    .register-btn {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-card {
+        padding: 24px;
+    }
+
+    .input-group label {
+        font-size: 13px;
+    }
+
+    .toggle-password {
+        top: 10px;
+        font-size: 13px;
+    }
+}

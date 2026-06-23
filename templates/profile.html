@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ _('Профіль') }} | Flasho</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+{% import 'avatar_display.html' as avatar_macros %}
+
+<header>
+    <div class="logo">flasho</div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-toggle-btn" aria-label="{{ _('Меню') }}">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <nav>
+        <a href="{{ url_for('dashboard') }}">{{ _('Мої набори') }}</a>
+        <a href="{{ url_for('profile') }}">{{ _('Профіль') }}</a>
+    </nav>
+
+<div class="auth-buttons">
+    <div class="user-info">
+        {{ avatar_macros.render_avatar(user.avatar, user.username, 'small') }}
+        <span class="username">{{ user.username }}</span>
+    </div>    <button class="dark-toggle" onclick="toggleDarkMode()" title="{{ _('Темна тема') }}">🌙</button>    <a href="{{ url_for('logout') }}" class="login btn-style">
+        <span>{{ _('Вийти') }}</span>
+    </a>
+</div>
+</header>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<section class="profile-page">
+
+<div class="profile-card">
+
+<h1>{{ _('Профіль користувача') }}</h1>
+
+<div class="avatar-block" id="avatar-display-block">
+    {% if user.avatar %}
+        {% if user.avatar.startswith('default_') %}
+            <div class="avatar-default-display" id="avatar-default-display">
+                {% if 'flamingo' in user.avatar %}🦩{% elif 'owl' in user.avatar %}🦉{% elif 'penguin' in user.avatar %}🐧{% elif 'giraffe' in user.avatar %}🦒{% elif 'panda' in user.avatar %}🐼{% elif 'bear' in user.avatar %}🐻{% elif 'lion' in user.avatar %}🦁{% elif 'parrot' in user.avatar %}🦜{% elif 'frog' in user.avatar %}🐸{% elif 'raccoon' in user.avatar %}🦝{% elif 'llama' in user.avatar %}🦙{% elif 'butterfly' in user.avatar %}🦋{% else %}😊{% endif %}
+            </div>
+        {% else %}
+            {{ avatar_macros.render_avatar(user.avatar, user.username, 'large') }}
+        {% endif %}
+    {% else %}
+        <div class="avatar-placeholder-large" id="avatar-default-display">
+            <span>{{ user.username[0]|upper }}</span>
+        </div>
+    {% endif %}
+</div>
+
+
+<form method="POST" enctype="multipart/form-data" class="profile-form">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <input type="hidden" name="action" value="update_profile">
+
+    <div class="form-row">
+        <div class="form-column">
+            <label>{{ _('Ім’я користувача') }}</label>
+            <input type="text" name="username" value="{{ user.username }}" placeholder="{{ _('Ім’я користувача') }}">
+
+            <label>{{ _('Електронна адреса') }}</label>
+            <input type="email" value="{{ user.email }}" disabled>
+
+            <label>{{ _('Мова сайту') }}</label>
+            <select name="language" class="profile-select">
+                <option value="uk" {% if user.language == 'uk' or not user.language %}selected{% endif %}>{{ _('Українська') }}</option>
+                <option value="en" {% if user.language == 'en' %}selected{% endif %}>{{ _('English') }}</option>
+                <option value="es" {% if user.language == 'es' %}selected{% endif %}>{{ _('Español') }}</option>
+            </select>
+        </div>
+
+        <div class="form-column avatar-settings">
+            <label>{{ _('Фото профілю') }}</label>
+            <div class="avatar-upload-row">
+                <input type="file" id="avatar-input" name="avatar" accept="image/*" style="display: none;">
+                <label for="avatar-input" id="avatar-file-name" class="file-name">{{ _('Виберіть файл або оберіть базовий аватар') }}</label>
+            </div>
+
+            <input type="hidden" name="avatar_choice" id="avatar_choice">
+
+            <label>{{ _('Базові аватари') }}</label>
+            <div class="avatar-options">
+                <button type="button" class="avatar-option avatar-default-flamingo" data-value="flamingo" data-emoji="🦩" title="Flamingo">🦩</button>
+                <button type="button" class="avatar-option avatar-default-owl" data-value="owl" data-emoji="🦉" title="Owl">🦉</button>
+                <button type="button" class="avatar-option avatar-default-penguin" data-value="penguin" data-emoji="🐧" title="Penguin">🐧</button>
+                <button type="button" class="avatar-option avatar-default-giraffe" data-value="giraffe" data-emoji="🦒" title="Giraffe">🦒</button>
+                <button type="button" class="avatar-option avatar-default-panda" data-value="panda" data-emoji="🐼" title="Panda">🐼</button>
+                <button type="button" class="avatar-option avatar-default-bear" data-value="bear" data-emoji="🐻" title="Bear">🐻</button>
+                <button type="button" class="avatar-option avatar-default-lion" data-value="lion" data-emoji="🦁" title="Lion">🦁</button>
+                <button type="button" class="avatar-option avatar-default-parrot" data-value="parrot" data-emoji="🦜" title="Parrot">🦜</button>
+                <button type="button" class="avatar-option avatar-default-frog" data-value="frog" data-emoji="🐸" title="Frog">🐸</button>
+                <button type="button" class="avatar-option avatar-default-raccoon" data-value="raccoon" data-emoji="🦝" title="Raccoon">🦝</button>
+                <button type="button" class="avatar-option avatar-default-llama" data-value="llama" data-emoji="🦙" title="Llama">🦙</button>
+                <button type="button" class="avatar-option avatar-default-butterfly" data-value="butterfly" data-emoji="🦋" title="Butterfly">🦋</button>
+            </div>
+        </div>
+    </div>
+
+    <button class="create-btn">
+        <span>{{ _('Зберегти зміни') }}</span>
+    </button>
+</form>
+
+<form method="POST" class="profile-form">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <input type="hidden" name="action" value="change_password">
+
+    <h2 class="section-title">{{ _('Змінити пароль') }}</h2>
+    <div class="form-row">
+        <div class="form-column">
+            <label>{{ _('Поточний пароль') }}</label>
+            <input type="password" name="current_password" placeholder="{{ _('Поточний пароль') }}">
+        </div>
+        <div class="form-column">
+            <label>{{ _('Новий пароль') }}</label>
+            <input type="password" name="new_password" placeholder="{{ _('Новий пароль') }}">
+        </div>
+    </div>
+    <label>{{ _('Підтвердіть новий пароль') }}</label>
+    <input type="password" name="confirm_password" placeholder="{{ _('Підтвердіть пароль') }}">
+    <button class="create-btn">
+        <span>{{ _('Змінити пароль') }}</span>
+    </button>
+</form>
+
+<form method="POST" class="profile-form profile-danger" id="delete-account-form" data-confirm-message="{{ _('Ви дійсно хочете видалити акаунт? Ця дія невідворотна.')|e('html') }}">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <input type="hidden" name="action" value="delete_account">
+    <button type="button" class="danger-btn" onclick="confirmDeleteAccount(event)">{{ _('Видалити обліковий запис') }}</button>
+</form>
+
+</div>
+
+</section>
+
+<script>
+    function confirmDeleteAccount(event, message) {
+        if (confirm(message)) {
+            event.target.closest('form').submit();
+        }
+    }
+    
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark');
+        localStorage.setItem('dark', document.body.classList.contains('dark'));
+    }
+
+    function activateAvatarOption(value) {
+        document.getElementById('avatar_choice').value = value;
+        document.getElementById('avatar-file-name').textContent = "{{ _('Обрано базовий аватар')|e('js') }}";
+        
+        const selectedButton = document.querySelector(`[data-value="${value}"]`);
+        const emoji = selectedButton ? selectedButton.dataset.emoji : '😊';
+        const avatarBlock = document.getElementById('avatar-display-block');
+        
+        if (avatarBlock) {
+            avatarBlock.innerHTML = `<div class="avatar-default-display" id="avatar-default-display">${emoji}</div>`;
+        }
+        
+        document.querySelectorAll('.avatar-option').forEach(option => {
+            option.classList.toggle('active', option.dataset.value === value);
+        });
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+        if (localStorage.getItem('dark') === 'true') {
+            document.body.classList.add('dark');
+        }
+
+        document.querySelectorAll('.avatar-option').forEach(option => {
+            option.addEventListener('click', function() {
+                activateAvatarOption(this.dataset.value);
+            });
+        });
+
+        const chooseFileLabelText = "{{ _('Виберіть файл або оберіть базовий аватар')|e('js') }}";
+        const avatarInput = document.getElementById('avatar-input');
+        if (avatarInput) {
+            avatarInput.addEventListener('change', function() {
+                const fileName = this.files && this.files[0] ? this.files[0].name : chooseFileLabelText;
+                document.getElementById('avatar-file-name').textContent = fileName;
+                document.getElementById('avatar_choice').value = '';
+                document.querySelectorAll('.avatar-option').forEach(option => option.classList.remove('active'));
+            });
+        }
+    });
+</script>
+
+</body>
+</html>

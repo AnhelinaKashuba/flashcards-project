@@ -1,0 +1,186 @@
+    <!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ _('Flasho') }}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script>
+window.addEventListener("scroll", function() {
+        const hero = document.querySelector(".hero");
+        let offset = window.pageYOffset;
+        hero.style.backgroundPositionY = offset * 0.5 + "px";
+    });
+
+    function startLoading(button){
+        button.classList.add("loading");
+        setTimeout(() => {
+            button.classList.remove("loading");
+        }, 2000);
+    }
+
+    function changeLanguage(lang) {
+        // Перенаправляємо на головну сторінку з параметром мови
+        window.location.href = "/?lang=" + lang;
+    }
+
+    function toggleTheme() {
+        document.body.classList.toggle('dark-theme');
+        localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+    }
+
+    // Відновлення теми при завантаженні
+    window.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    });
+    </script>
+</head>
+    <body>
+
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                flasho
+            </div>
+        </div>
+
+        <nav>
+            <a href="#features">{{ _('Особливості') }}</a>
+            <a href="#how-works">{{ _('Як це працює?') }}</a>
+            <a href="#about">{{ _('Про сервіс') }}</a>
+        </nav>
+
+        <div class="auth-buttons">
+            <a href="{{ url_for('login') }}" class="login btn-style">
+                <span>{{ _('Увійти') }}</span>
+            </a>
+            <a href="{{ url_for('register') }}" class="register btn-style">
+                <span>{{ _('Реєстрація') }}</span>
+            </a>
+        </div>
+    </header>
+
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                {{ _('Навчайтесь ефективно з') }}<br>
+                {{ _('онлайн-флешкартами') }}
+            </h1>
+
+            <p>
+                {{ _('Створюйте власні навчальні набори, проходьте інтерактивні тести та відслідковуйте свій прогрес') }}
+            </p>
+
+            <a href="{{ url_for('register') }}" class="hero-btn btn-style">
+                {{ _('Реєстрація →') }}
+            </a>
+        </div>
+    </section>
+
+    <!-- ОСОБЛИВОСТІ -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>{{ _('Чому вибирати Flasho?') }}</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>{{ _('Легко створювати') }}</h3>
+                    <p>{{ _('Швидко розробіть власні набори флешкарток за допомогою інтуїтивного редактора') }}</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>{{ _('Активне навчання') }}</h3>
+                    <p>{{ _('Інтерактивні вправи та випадкове відтворення для кращого засвоєння матеріалу') }}</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>{{ _('Відслідковуйте прогрес') }}</h3>
+                    <p>{{ _('Детальна статистика навчання та графіки виконання для аналізу результатів') }}</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>{{ _('Будь-де і будь-коли') }}</h3>
+                    <p>{{ _('Мобільна оптимізація для навчання на ходу з будь-якого пристрою') }}</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>{{ _('Спільна робота') }}</h3>
+                    <p>{{ _('Ділиться наборами з однокласниками та вчимось разом') }}</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>{{ _('Швидке вивчення') }}</h3>
+                    <p>{{ _('Оптимізовані алгоритми для максимальної ефективності навчання') }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ЯК ЦЕ ПРАЦЮЄ -->
+    <section class="how-works" id="how-works">
+        <div class="container">
+            <h2>{{ _('Як це працює?') }}</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>{{ _('Зареєструйтеся') }}</h3>
+                    <p>{{ _('Створіть вільний акаунт за допомогою електронної пошти') }}</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>{{ _('Створіть набір') }}</h3>
+                    <p>{{ _('Додайте термін та визначення для кожної карточки') }}</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>{{ _('Навчайтеся') }}</h3>
+                    <p>{{ _('Використовуйте різні режими навчання: тест, вивчення, вибір') }}</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>{{ _('Відслідковуйте') }}</h3>
+                    <p>{{ _('Переглядайте статистику та аналізуйте свій прогрес') }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПРО СЕРВІС -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>{{ _('Про Flasho') }}</h2>
+                    <p>
+                        {{ _('Flasho - це сучасна платформа для ефективного навчання, розроблена спеціалістами в галузі освіти та технологій.') }}
+                    </p>
+                    <p>
+                        {{ _('Наша місія - зробити якісну освіту доступною для всіх, незалежно від місця проживання чи фінансових можливостей.') }}
+                    </p>
+                    <p>
+                        {{ _('З технологією адаптивного навчання та персоналізованими рекомендаціями, кожний користувач отримує оптимальний шлях до знань.') }}
+                    </p>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>{{ _('Готові почати навчання?') }}</h2>
+            <p>{{ _('Приєднайтеся до тисяч учнів, які вже вивчають ефективно') }}</p>
+            <a href="{{ url_for('register') }}" class="cta-btn btn-style">
+                {{ _('Створити акаунт') }}
+            </a>
+        </div>
+    </section>
+
+    </body>
+    </html>

@@ -1,0 +1,25 @@
+1313:         <label for="menu-toggle" class="menu-toggle-btn" aria-label="{{ _('Меню') }}">
+1320:             <a href="{{ url_for('dashboard') }}">{{ _('Мої набори') }}</a>
+1321:             <a href="{{ url_for('profile') }}">{{ _('Профіль') }}</a>
+1328:             <button class="dark-toggle" onclick="toggleDarkMode()" title="{{ _('Темна тема') }}">🌙</button>
+1329:             <a href="{{ url_for('logout') }}" class="login btn-style">{{ _('Вийти') }}</a>
+1346:             <a href="{{ url_for('dashboard') }}" class="back-btn" style="color: #8c4b5f;">← {{ _('Назад до наборів') }}</a>
+1355:                 <input type="text" id="search" placeholder="{{ _('Пошук карток...') }}" class="search-input" oninput="searchCards()">
+1395:                     {{ _('Вивчено:') }} <strong id="learned-count">0</strong> / <span id="total-cards">0</span>
+1456:             <p class="quiz-hint">{{ _('Оберіть правильне визначення з варіантів нижче, щоб пройти тест.') }}</p>
+1462:             <h2>{{ _('Знайдіть відповідності') }}</h2>
+1463:             <p class="match-instructions">{{ _('Виберіть термін зліва, потім знайдіть правильне визначення справа.') }}</p>
+1469:                 <span id="match-status">0 / 0 {{ _('пари знайдено') }}</span>
+1483:             <h2>{{ _('Колесо фортуни') }}</h2>
+1484:             <p class="wheel-hint">{{ _('Натисніть «Крутити», щоб випадково обрати картку з набору.') }}</p>
+1490:                 <button class="control-btn" onclick="spinWheel()" id="spin-wheel-btn">{{ _('Крутити') }}</button>
+1491:                 <button class="control-btn" onclick="resetWheel()">{{ _('Оновити') }}</button>
+1503:                 <textarea id="wheel-modal-input" class="wheel-input" placeholder="{{ _('Введіть визначення...') }}"></textarea>
+1505:                     <button class="control-btn" onclick="submitWheelAnswer()">{{ _('Перевірити') }}</button>
+1506:                     <button class="control-btn" onclick="closeWheelModal()">{{ _('Скасувати') }}</button>
+1514:             <h2>{{ _('Впишіть правильну відповідь') }}</h2>
+1515:             <p class="write-hint">{{ _('Уважно прочитайте термін і впишіть правильне визначення нижче.') }}</p>
+1518:                 <input type="text" id="write-input" placeholder="{{ _('Введіть відповідь...') }}" class="write-input" autocomplete="off">
+1574:             <h2>{{ _('Вітаємо!') }}</h2>
+1575:             <p>{{ _('Ви переглянули всі картки в цьому наборі!') }}</p>
+1593:             <a href="{{ url_for('dashboard') }}" class="back-btn">← {{ _('Повернутися до наборів') }}</a>

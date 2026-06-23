@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ _('Статистика') }} | Flasho</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+{% import 'avatar_display.html' as avatar_macros %}
+
+<header>
+    <div class="logo">flasho</div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-toggle-btn" aria-label="{{ _('Меню') }}">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <nav>
+        <a href="{{ url_for('dashboard') }}">{{ _('Мої набори') }}</a>
+        <a href="{{ url_for('statistics') }}">{{ _('Статистика') }}</a>
+        <a href="{{ url_for('profile') }}">{{ _('Профіль') }}</a>
+    </nav>
+
+    <div class="auth-buttons">
+        <div class="user-info">
+            {{ avatar_macros.render_avatar(user.avatar, user.username, 'small') }}
+            <span class="username">{{ user.username }}</span>
+        </div>
+        <button class="dark-toggle" onclick="toggleDarkMode()" title="{{ _('Темна тема') }}">🌙</button>
+        <a href="{{ url_for('logout') }}" class="logout-btn">{{ _('Вийти') }}</a>
+    </div>
+</header>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="flash-message flash-{{ category }}" role="alert">
+                <p>{{ message }}</p>
+                <button class="flash-close" onclick="this.parentElement.style.display='none';">&times;</button>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<section class="statistics-page">
+    <div class="statistics-grid">
+        <div class="stat-card">
+            <h2>{{ _('Стрічка днів') }}</h2>
+            <p>{{ stats.streak if stats else 0 }}</p>
+            <span>{{ _('Поточна серія днів') }}</span>
+        </div>
+        <div class="stat-card">
+            <h2>{{ _('Набори') }}</h2>
+            <p>{{ total_sets }}</p>
+            <span>{{ _('Всього наборів') }}</span>
+        </div>
+        <div class="stat-card">
+            <h2>{{ _('Карток') }}</h2>
+            <p>{{ total_cards }}</p>
+            <span>{{ _('Всього карток') }}</span>
+        </div>
+        <div class="stat-card">
+            <h2>{{ _('Потрібно повторити') }}</h2>
+            <p>{{ due_review }}</p>
+            <span>{{ _('Карток для повторення сьогодні') }}</span>
+        </div>
+    </div>
+
+    <div class="recent-results">
+        <div class="section-title">{{ _('Останні результати тестів') }}</div>
+        {% if recent_results %}
+            <div class="results-table">
+                <div class="results-table-header">
+                    <span>{{ _('Набір') }}</span>
+                    <span>{{ _('Результат') }}</span>
+                    <span>{{ _('Дата') }}</span>
+                </div>
+                {% for row in recent_results %}
+                <div class="results-table-row">
+                    <span>{{ row.set_name or _('Набір') }}</span>
+                    <span>{{ row.score }} / {{ row.total }} ({{ ((row.score / row.total) * 100)|round(0) if row.total else 0 }}%)</span>
+                    <span>{{ row.created_at.split(' ')[0] }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="empty-state">{{ _('Тут з’являться результати ваших тестів після проходження quiz-режиму.') }}</p>
+        {% endif %}
+    </div>
+</section>
+
+<script>
+function toggleDarkMode() {
+    document.body.classList.toggle('dark');
+    localStorage.setItem('dark', document.body.classList.contains('dark'));
+}
+window.addEventListener('DOMContentLoaded', function() {
+    if (localStorage.getItem('dark') === 'true') {
+        document.body.classList.add('dark');
+    }
+});
+</script>
+
+</body>
+</html>

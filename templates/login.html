@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ _('Вхід') }} | Flasho</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <span class="logo-icon">≡</span>
+        flasho
+    </div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-toggle-btn" aria-label="{{ _('Меню') }}">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <nav>
+        <a href="{{ url_for('index') }}">{{ _('Головна') }}</a>
+    </nav>
+</header>
+
+<section class="register-section">
+
+    <div class="register-card">
+
+        <h2>{{ _('Вхід в акаунт') }}</h2>
+
+        <form method="POST" action="{{ url_for('login') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+
+            <div class="input-group">
+                <input type="email" name="email" required>
+                <label>{{ _('Email') }}</label>
+            </div>
+
+            <div class="input-group password-group">
+                <input type="password" name="password" required>
+                <label>{{ _('Пароль') }}</label>
+            </div>
+
+            <button type="submit" class="register-btn">
+                <span>{{ _('Увійти') }}</span>
+            </button>
+
+        </form>
+
+        <p class="login-link">
+            {{ _('Немає акаунта?') }}
+            <a href="{{ url_for('register') }}">{{ _('Зареєструватися') }}</a>
+        </p>
+
+    </div>
+
+</section>
+
+</body>
+</html>

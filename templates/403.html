@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ _('403 - Доступ заборонено') }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .error-page {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f2e9ea 0%, #f5f5f7 100%);
+        }
+        
+        .error-container {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+        }
+        
+        .error-code {
+            font-size: 72px;
+            font-weight: bold;
+            color: #f44336;
+            margin-bottom: 10px;
+        }
+        
+        .error-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .error-message {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .error-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .error-btn-primary {
+            background: #8c4b5f;
+            color: white;
+        }
+        
+        .error-btn-primary:hover {
+            background: #6f394a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .error-btn-secondary {
+            background: #f2e9ea;
+            color: #8c4b5f;
+            border: 1px solid #8c4b5f;
+        }
+        
+        .error-btn-secondary:hover {
+            background: #f5f5f7;
+        }
+        
+        body.dark .error-page {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+        
+        body.dark .error-container {
+            background: #2d2d2d;
+            color: #fff;
+        }
+        
+        body.dark .error-title {
+            color: #fff;
+        }
+        
+        body.dark .error-message {
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <section class="error-page">
+        <div class="error-container">
+            <div class="error-code">403</div>
+            <h1 class="error-title">{{ _('Доступ заборонено') }}</h1>
+            <p class="error-message">
+                {{ _('У вас немає прав доступу до цього ресурсу. Перевірте, що ви маєте правильний доступ або спробуйте увійти іншим акаунтом.') }}
+            </p>
+            <div class="error-actions">
+                {% if session.get('user_id') %}
+                    <a href="{{ url_for('dashboard') }}" class="error-btn error-btn-primary">
+                        {{ _('Повернутися до наборів') }}
+                    </a>
+                    <a href="{{ url_for('profile') }}" class="error-btn error-btn-secondary">
+                        {{ _('Профіль') }}
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="error-btn error-btn-primary">
+                        {{ _('Увійти') }}
+                    </a>
+                    <a href="{{ url_for('index') }}" class="error-btn error-btn-secondary">
+                        {{ _('На головну') }}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

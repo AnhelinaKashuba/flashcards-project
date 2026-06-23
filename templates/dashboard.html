@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ _('Мої набори') }}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+{% import 'avatar_display.html' as avatar_macros %}
+
+<body>
+
+<header>
+
+<div class="logo">flasho</div>
+
+<input type="checkbox" id="menu-toggle" class="menu-toggle">
+<label for="menu-toggle" class="menu-toggle-btn" aria-label="{{ _('Меню') }}">
+    <span></span>
+    <span></span>
+    <span></span>
+</label>
+
+<div class="header-search">
+    <div class="search-input-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <circle cx="10" cy="10" r="6"></circle>
+            <line x1="15" y1="15" x2="21" y2="21"></line>
+        </svg>
+        <input id="dashboard-search" type="text" placeholder="{{ _('Пошук') }}" oninput="filterSets()" onkeypress="if (event.key === 'Enter') filterSets()">
+    </div>
+    <button class="search-btn" type="button" onclick="filterSets()">{{ _('Пошук') }}</button>
+</div>
+
+<nav>
+<a href="{{ url_for('dashboard') }}">{{ _('Мої набори') }}</a>
+<a href="{{ url_for('statistics') }}">{{ _('Статистика') }}</a>
+<a href="{{ url_for('profile') }}">{{ _('Профіль') }}</a>
+</nav>
+
+<div class="auth-buttons">
+
+<div class="user-info">
+
+{{ avatar_macros.render_avatar(user.avatar, user.username, 'small') }}
+
+<span class="username">{{ username }}</span>
+
+</div>
+<button class="dark-toggle" onclick="toggleDarkMode()" title="{{ _('Темна тема') }}">🌙</button>
+<a href="{{ url_for('logout') }}" class="logout-btn">{{ _('Вийти') }}</a>
+
+</div>
+
+</header>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="flash-message flash-{{ category }}" role="alert">
+                <p>{{ message }}</p>
+                <button class="flash-close" onclick="this.parentElement.style.display='none';">&times;</button>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<section class="dashboard">
+
+<div class="dashboard-top">
+
+<h1>{{ _('Мої набори') }}</h1>
+
+<a href="{{ url_for('create_set') }}" class="create-btn">
+{{ _('+ Створити новий набір') }}
+</a>
+
+</div>
+
+<div class="dashboard-filters">
+    <div class="filter-group">
+        <a href="{{ url_for('dashboard', search=search_query, filter='all') }}" 
+           class="filter-btn {% if filter_type == 'all' %}active{% endif %}">
+            {{ _('Всі') }}
+        </a>
+        <a href="{{ url_for('dashboard', search=search_query, filter='new') }}" 
+           class="filter-btn {% if filter_type == 'new' %}active{% endif %}">
+            {{ _('Нові') }}
+        </a>
+        <a href="{{ url_for('dashboard', search=search_query, filter='learning') }}" 
+           class="filter-btn {% if filter_type == 'learning' %}active{% endif %}">
+            {{ _('Вивчаю') }}
+        </a>
+        <a href="{{ url_for('dashboard', search=search_query, filter='due') }}" 
+           class="filter-btn {% if filter_type == 'due' %}active{% endif %}">
+            {{ _('На повтор') }}
+        </a>
+    </div>
+</div>
+
+<div class="sets-grid" id="sets-grid">
+
+{% for set in sets %}
+
+<div class="set-card">
+
+<div class="card-header">
+<h3>{{ set.name }}</h3>
+<p>{{ set.cards_count }} {{ _('карток') }}</p>
+</div>
+
+<div class="card-progress">
+
+{% if set.cards_count > 0 %}
+
+{% set percent = (set.learned_cards / set.cards_count * 100)|int %}
+
+<div class="progress-bar">
+    <div class="progress" style="--progress-width: {{ percent }}%; width: var(--progress-width);"></div>
+</div>
+
+<p class="progress-text">
+{{ _('Вивчено') }} {{ set.learned_cards }} / {{ set.cards_count }}
+</p>
+
+{% else %}
+
+<div class="progress-bar">
+    <div class="progress" style="width: 0%;"></div>
+</div>
+
+<p class="progress-text">{{ _('Додайте картки') }}</p>
+
+{% endif %}
+
+</div>
+
+<div class="set-actions">
+    <form method="POST" action="{{ url_for('delete_set', set_id=set.id) }}" class="inline-delete" id="delete-form-{{ set.id }}" data-confirm-message="{{ _('Видалити набір?')|e('html') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+        <button type="button" class="delete-button" onclick="confirmDelete(event)">{{ _('Видалити') }}</button>
+    </form>
+
+<a href="{{ url_for('edit_set', set_id=set.id) }}">
+{{ _('Редагувати') }}
+</a>
+
+<a href="{{ url_for('study_set', set_id=set.id) }}">
+{{ _('Вивчати →') }}
+</a>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<div id="dashboard-no-results" class="no-results" style="display:none;">{{ _('Нічого не знайдено') }}</div>
+
+</section>
+
+<!-- Додайте JavaScript для роботи з CSS змінними, якщо потрібно -->
+<script>
+    function confirmDelete(event) {
+        const form = event.target.closest('form');
+        const message = form.getAttribute('data-confirm-message');
+        if (confirm(message)) {
+            form.submit();
+        }
+    }
+    
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark');
+        localStorage.setItem('dark', document.body.classList.contains('dark'));
+    }
+
+    // Завантаження dark mode при старті
+    window.addEventListener('DOMContentLoaded', function() {
+        if (localStorage.getItem('dark') === 'true') {
+            document.body.classList.add('dark');
+        }
+        console.log('Dashboard loaded');
+    });
+
+    function filterSets() {
+        const query = document.getElementById('dashboard-search').value.trim().toLowerCase();
+        const cards = document.querySelectorAll('#sets-grid .set-card');
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+            const title = card.querySelector('.card-header h3').textContent.toLowerCase();
+            const description = card.querySelector('.card-header p').textContent.toLowerCase();
+            const match = title.includes(query) || description.includes(query);
+            card.style.display = match ? '' : 'none';
+            if (match) visibleCount += 1;
+        });
+
+        const noResults = document.getElementById('dashboard-no-results');
+        if (visibleCount === 0 && query !== '') {
+            noResults.style.display = 'block';
+        } else {
+            noResults.style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>

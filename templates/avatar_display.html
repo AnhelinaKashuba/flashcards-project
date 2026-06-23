@@ -1,0 +1,15 @@
+{% macro render_avatar(avatar, username, size='small') %}
+    {% if avatar %}
+        {% if avatar.startswith('default_') %}
+            <span class="avatar-emoji avatar-{{ size }}">
+                {%- if 'flamingo' in avatar %}🦩{%- elif 'owl' in avatar %}🦉{%- elif 'penguin' in avatar %}🐧{%- elif 'giraffe' in avatar %}🦒{%- elif 'panda' in avatar %}🐼{%- elif 'bear' in avatar %}🐻{%- elif 'lion' in avatar %}🦁{%- elif 'parrot' in avatar %}🦜{%- elif 'frog' in avatar %}🐸{%- elif 'raccoon' in avatar %}🦝{%- elif 'llama' in avatar %}🦙{%- elif 'butterfly' in avatar %}🦋{%- else %}😊{%- endif %}
+            </span>
+        {% else %}
+            <img src="{{ url_for('static', filename='uploads/' + avatar) }}" alt="Avatar" class="avatar-img avatar-{{ size }}">
+        {% endif %}
+    {% else %}
+        <div class="avatar-placeholder avatar-{{ size }}">
+            <span>{{ username[0]|upper }}</span>
+        </div>
+    {% endif %}
+{% endmacro %}

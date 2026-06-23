@@ -1,0 +1,822 @@
+[
+  {
+    "path": "templates\\403.html",
+    "line": 6,
+    "text": "    <title>403 - Доступ заборонено</title>"
+  },
+  {
+    "path": "templates\\403.html",
+    "line": 106,
+    "text": "            <h1 class=\"error-title\">Доступ заборонено</h1>"
+  },
+  {
+    "path": "templates\\403.html",
+    "line": 108,
+    "text": "                У вас немає прав доступу до цього ресурсу. Перевірте, що ви маєте правильний доступ або спробуйте увійти іншим акаунтом."
+  },
+  {
+    "path": "templates\\403.html",
+    "line": 113,
+    "text": "                        Повернутися до наборів"
+  },
+  {
+    "path": "templates\\403.html",
+    "line": 116,
+    "text": "                        Профіль"
+  },
+  {
+    "path": "templates\\403.html",
+    "line": 120,
+    "text": "                        Увійти"
+  },
+  {
+    "path": "templates\\403.html",
+    "line": 123,
+    "text": "                        На головну"
+  },
+  {
+    "path": "templates\\404.html",
+    "line": 6,
+    "text": "    <title>404 - Сторінка не знайдена</title>"
+  },
+  {
+    "path": "templates\\404.html",
+    "line": 106,
+    "text": "            <h1 class=\"error-title\">Сторінка не знайдена</h1>"
+  },
+  {
+    "path": "templates\\404.html",
+    "line": 108,
+    "text": "                На жаль, сторінка, яку ви шукаєте, не існує або була видалена."
+  },
+  {
+    "path": "templates\\404.html",
+    "line": 112,
+    "text": "                    Повернутися на головну"
+  },
+  {
+    "path": "templates\\404.html",
+    "line": 116,
+    "text": "                        Мої набори"
+  },
+  {
+    "path": "templates\\create_set.html",
+    "line": 19,
+    "text": "<label for=\"menu-toggle\" class=\"menu-toggle-btn\" aria-label=\"Меню\">"
+  },
+  {
+    "path": "templates\\create_set.html",
+    "line": 106,
+    "text": "    <button type=\"button\" class=\"delete-btn\" onclick=\"deleteCard(this)\" aria-label=\"Видалити картку\">"
+  },
+  {
+    "path": "templates\\create_set.html",
+    "line": 121,
+    "text": "      <label for=\"term_image_0\" class=\"file-upload-button\" title=\"Завантажити зображення терміну\">"
+  },
+  {
+    "path": "templates\\create_set.html",
+    "line": 136,
+    "text": "      <label for=\"definition_image_0\" class=\"file-upload-button\" title=\"Завантажити зображення визначення\">"
+  },
+  {
+    "path": "templates\\create_set.html",
+    "line": 150,
+    "text": "    <span class=\"card-number\">Картка 2</span>"
+  },
+  {
+    "path": "templates\\create_set.html",
+    "line": 151,
+    "text": "    <button type=\"button\" class=\"delete-btn\" onclick=\"deleteCard(this)\" aria-label=\"Видалити картку\">"
+  },
+  {
+    "path": "templates\\create_set.html",
+    "line": 166,
+    "text": "      <label for=\"term_image_1\" class=\"file-upload-button\" title=\"Завантажити зображення терміну\">"
+  },
+  {
+    "path": "templates\\create_set.html",
+    "line": 181,
+    "text": "      <label for=\"definition_image_1\" class=\"file-upload-button\" title=\"Завантажити зображення визначення\">"
+  },
+  {
+    "path": "templates\\create_set.html",
+    "line": 230,
+    "text": "      label.textContent = `Картка ${index + 1}`"
+  },
+  {
+    "path": "templates\\create_set.html",
+    "line": 244,
+    "text": "    <button type=\"button\" class=\"delete-btn\" onclick=\"deleteCard(this)\" aria-label=\"Видалити картку\">"
+  },
+  {
+    "path": "templates\\create_set.html",
+    "line": 255,
+    "text": "    <input name=\"term[]\" placeholder=\"Термін\" class=\"card-input\">"
+  },
+  {
+    "path": "templates\\create_set.html",
+    "line": 258,
+    "text": "      <label for=\"term_image_${uniqId}\" class=\"file-upload-button\" title=\"Завантажити зображення терміну\">"
+  },
+  {
+    "path": "templates\\create_set.html",
+    "line": 269,
+    "text": "    <input name=\"definition[]\" placeholder=\"Визначення\" class=\"card-input\">"
+  },
+  {
+    "path": "templates\\create_set.html",
+    "line": 272,
+    "text": "      <label for=\"definition_image_${uniqId}\" class=\"file-upload-button\" title=\"Завантажити зображення визначення\">"
+  },
+  {
+    "path": "templates\\create_set.html",
+    "line": 306,
+    "text": "    preview.innerHTML = `<img src=\"${reader.result}\" alt=\"Попередній перегляд\" />`"
+  },
+  {
+    "path": "templates\\dashboard.html",
+    "line": 19,
+    "text": "<label for=\"menu-toggle\" class=\"menu-toggle-btn\" aria-label=\"Меню\">"
+  },
+  {
+    "path": "templates\\dashboard.html",
+    "line": 110,
+    "text": "<p>{{ set.cards_count }} карток</p>"
+  },
+  {
+    "path": "templates\\dashboard.html",
+    "line": 165,
+    "text": "<!-- Додайте JavaScript для роботи з CSS змінними, якщо потрібно -->"
+  },
+  {
+    "path": "templates\\dashboard.html",
+    "line": 172,
+    "text": "    // Завантаження dark mode при старті"
+  },
+  {
+    "path": "templates\\edit_set.html",
+    "line": 19,
+    "text": "<label for=\"menu-toggle\" class=\"menu-toggle-btn\" aria-label=\"Меню\">"
+  },
+  {
+    "path": "templates\\edit_set.html",
+    "line": 86,
+    "text": "    <!-- Назва -->"
+  },
+  {
+    "path": "templates\\edit_set.html",
+    "line": 89,
+    "text": "    <!-- Опис -->"
+  },
+  {
+    "path": "templates\\edit_set.html",
+    "line": 93,
+    "text": "    <h2 class=\"cards-title\">Картки</h2>"
+  },
+  {
+    "path": "templates\\edit_set.html",
+    "line": 100,
+    "text": "          <span class=\"card-number\">Картка {{ loop.index }}</span>"
+  },
+  {
+    "path": "templates\\edit_set.html",
+    "line": 117,
+    "text": "            <label for=\"term_image_{{ loop.index }}\" class=\"file-upload-button\" title=\"Завантажити зображення терміну\">"
+  },
+  {
+    "path": "templates\\edit_set.html",
+    "line": 129,
+    "text": "          <input name=\"definition[]\" value=\"{{ card.definition }}\" placeholder=\"Визначення\" class=\"card-input\">"
+  },
+  {
+    "path": "templates\\edit_set.html",
+    "line": 133,
+    "text": "            <label for=\"definition_image_{{ loop.index }}\" class=\"file-upload-button\" title=\"Завантажити зображення визначення\">"
+  },
+  {
+    "path": "templates\\edit_set.html",
+    "line": 148,
+    "text": "    <!-- Додати картку -->"
+  },
+  {
+    "path": "templates\\edit_set.html",
+    "line": 151,
+    "text": "    <!-- Кнопка -->"
+  },
+  {
+    "path": "templates\\edit_set.html",
+    "line": 152,
+    "text": "    <button class=\"save-btn\">Зберегти зміни</button>"
+  },
+  {
+    "path": "templates\\edit_set.html",
+    "line": 177,
+    "text": "      label.textContent = `Картка ${index + 1}`"
+  },
+  {
+    "path": "templates\\edit_set.html",
+    "line": 203,
+    "text": "      <input name=\"term[]\" placeholder=\"Термін\" class=\"card-input\">"
+  },
+  {
+    "path": "templates\\edit_set.html",
+    "line": 207,
+    "text": "        <label for=\"term_image_${uniqId}\" class=\"file-upload-button\" title=\"Завантажити зображення терміну\">"
+  },
+  {
+    "path": "templates\\edit_set.html",
+    "line": 218,
+    "text": "      <input name=\"definition[]\" placeholder=\"Визначення\" class=\"card-input\">"
+  },
+  {
+    "path": "templates\\edit_set.html",
+    "line": 222,
+    "text": "        <label for=\"definition_image_${uniqId}\" class=\"file-upload-button\" title=\"Завантажити зображення визначення\">"
+  },
+  {
+    "path": "templates\\index.html",
+    "line": 23,
+    "text": "        // Перенаправляємо на головну сторінку з параметром мови"
+  },
+  {
+    "path": "templates\\index.html",
+    "line": 32,
+    "text": "    // Відновлення теми при завантаженні"
+  },
+  {
+    "path": "templates\\index.html",
+    "line": 51,
+    "text": "        <label for=\"menu-toggle\" class=\"menu-toggle-btn\" aria-label=\"Меню\">"
+  },
+  {
+    "path": "templates\\index.html",
+    "line": 91,
+    "text": "    <!-- ОСОБЛИВОСТІ -->"
+  },
+  {
+    "path": "templates\\index.html",
+    "line": 130,
+    "text": "    <!-- ЯК ЦЕ ПРАЦЮЄ -->"
+  },
+  {
+    "path": "templates\\index.html",
+    "line": 159,
+    "text": "    <!-- ПРО СЕРВІС -->"
+  },
+  {
+    "path": "templates\\login.html",
+    "line": 19,
+    "text": "    <label for=\"menu-toggle\" class=\"menu-toggle-btn\" aria-label=\"Меню\">"
+  },
+  {
+    "path": "templates\\profile.html",
+    "line": 18,
+    "text": "    <label for=\"menu-toggle\" class=\"menu-toggle-btn\" aria-label=\"Меню\">"
+  },
+  {
+    "path": "templates\\profile.html",
+    "line": 162,
+    "text": "        document.getElementById('avatar-file-name').textContent = 'Обрано базовий аватар';"
+  },
+  {
+    "path": "templates\\profile.html",
+    "line": 191,
+    "text": "                const fileName = this.files && this.files[0] ? this.files[0].name : 'Виберіть файл або оберіть базовий аватар';"
+  },
+  {
+    "path": "templates\\register.html",
+    "line": 19,
+    "text": "    <label for=\"menu-toggle\" class=\"menu-toggle-btn\" aria-label=\"Меню\">"
+  },
+  {
+    "path": "templates\\statistics.html",
+    "line": 18,
+    "text": "    <label for=\"menu-toggle\" class=\"menu-toggle-btn\" aria-label=\"Меню\">"
+  },
+  {
+    "path": "templates\\statistics.html",
+    "line": 86,
+    "text": "                    <span>{{ row.set_name or _('Набір') }}</span>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 399,
+    "text": "        /* Стилі для сторінки вивчення */"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 472,
+    "text": "        /* Flashcard стилі */"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 540,
+    "text": "        /* Кнопки навігації */"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 578,
+    "text": "        /* Секція оцінки знань */"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 971,
+    "text": "        /* Список карток */"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1041,
+    "text": "        /* Результати */"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1240,
+    "text": "        /* Тимчасове повідомлення */"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1283,
+    "text": "        /* Адаптивність */"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1313,
+    "text": "        <label for=\"menu-toggle\" class=\"menu-toggle-btn\" aria-label=\"Меню\">"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1344,
+    "text": "                {{ set_name if set_name else _('Вивчення набору') }}"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1529,
+    "text": "        <!-- Режим карток -->"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1539,
+    "text": "                        <div class=\"flip-hint\">🖱️ Натисніть, щоб повернути</div>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1544,
+    "text": "            <!-- Секція оцінки - завжди активна -->"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1567,
+    "text": "        <!-- Режим списку -->"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1572,
+    "text": "        <!-- Результати -->"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1598,
+    "text": "        // Дані карток"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1600,
+    "text": "        let originalCards = []; // Оригінальні картки для пошуку та перемішування"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1604,
+    "text": "        let isWaitingForNext = false; // Запобігаємо множинним натисканням"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1636,
+    "text": "        // Завантаження dark mode при старті"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1643,
+    "text": "        // Пошук карток"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1655,
+    "text": "            updateProgress(); // Оновлюємо прогрес після фільтрації"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1661,
+    "text": "        // Перемішування карток"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1666,
+    "text": "            updateProgress(); // Оновлюємо прогрес після перемішування"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1667,
+    "text": "            showToastMessage('🔀 Картки перемішано!', 'info');"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1670,
+    "text": "        // Quiz mode - повний тест для всіх карток"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1725,
+    "text": "                        showToastMessage('✅ Правильно!', 'success');"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1728,
+    "text": "                        showToastMessage('❌ Неправильно. Правильна відповідь: ' + card.definition, 'error');"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1732,
+    "text": "                    // Блокуємо всі кнопки"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1736,
+    "text": "                    // Переходимо до наступного питання через 2 секунди"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1752,
+    "text": "                <h2> Результати тесту</h2>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1754,
+    "text": "                    <p>Правильних відповідей: ${quizScore} з ${quizCards.length}</p>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1755,
+    "text": "                    <p>Відсоток: ${percentage}%</p>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1760,
+    "text": "                        <span>Точність</span>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1770,
+    "text": "                            Пройти тест ще раз"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1772,
+    "text": "                        <button onclick=\"exitQuiz()\" class=\"control-btn\">Повернутися до карток</button>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1788,
+    "text": "                console.warn('Не вдалось зберегти результат тесту', error);"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1817,
+    "text": "            writeCards = [...originalCards].sort(() => Math.random() - 0.5); // Перемішуємо картки"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1850,
+    "text": "                document.getElementById('fortune-wheel').innerHTML = '<div class=\"wheel-empty\">Немає карток для колеса.</div>';"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 1995,
+    "text": "            // Запасний виклик, якщо transitionend не спрацює"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2038,
+    "text": "                feedback.textContent = 'Нічого не вибрано.';"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2070,
+    "text": "                wheel.innerHTML = '<div class=\"wheel-empty\">Всі картки пройдено!</div>';"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2146,
+    "text": "                showToastMessage('✅ Правильна пара!', 'success');"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2149,
+    "text": "                    showToastMessage('🏆 Ви знайшли всі відповідності!', 'success');"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2153,
+    "text": "                showToastMessage('❌ Неправильно, спробуйте ще раз', 'error');"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2175,
+    "text": "                // Кінець тесту"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2194,
+    "text": "            // Дозволяємо натискання Enter для відправки відповіді"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2204,
+    "text": "                // Кінець тесту"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2223,
+    "text": "            // Дозволяємо натискання Enter для відправки відповіді"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2238,
+    "text": "            // Простий тест - чи в відповіді існує правильна відповідь чи близька до неї"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2245,
+    "text": "                    <div>✅ Правильно!</div>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2246,
+    "text": "                    <div style=\"font-size: 14px; margin-top: 10px;\">Твоя відповідь: <strong>${escapeHtml(userAnswer)}</strong></div>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2248,
+    "text": "                showToastMessage('✅ Правильна відповідь!', 'success');"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2252,
+    "text": "                    <div>❌ Неправильно!</div>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2253,
+    "text": "                    <div style=\"font-size: 14px; margin-top: 10px;\">Твоя відповідь: <strong>${escapeHtml(userAnswer)}</strong></div>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2254,
+    "text": "                    <div style=\"font-size: 14px; margin-top: 5px;\">Правильна відповідь: <strong>${escapeHtml(card.definition)}</strong></div>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2256,
+    "text": "                showToastMessage('❌ Неправильна відповідь!', 'error');"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2259,
+    "text": "            // Дозволяємо перейти до наступного питання через 3 секунди або після натискання кнопки"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2272,
+    "text": "            // Точний збіг"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2275,
+    "text": "            // Порівнюємо перші слова"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2283,
+    "text": "            // Перевіряємо чи відповідь містить більшість слів з правильної відповіді"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2302,
+    "text": "                <h2>Результати</h2>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2304,
+    "text": "                    <p>Правильних відповідей: ${writeScore} з ${writeCards.length}</p>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2305,
+    "text": "                    <p>Відсоток: ${percentage}%</p>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2310,
+    "text": "                        <span>Точність</span>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2320,
+    "text": "                            Пройти тест ще раз"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2322,
+    "text": "                        <button onclick=\"exitWriteMode()\" class=\"control-btn\">Повернутися до карток</button>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2344,
+    "text": "                <h2>Вписуйте відповідь</h2>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2347,
+    "text": "                    <input type=\"text\" id=\"write-input\" placeholder=\"Введіть відповідь...\" class=\"write-input\" autocomplete=\"off\">"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2352,
+    "text": "                        Перевірити"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2362,
+    "text": "        // Отримуємо дані з сервера"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2368,
+    "text": "                originalCards = [...cards]; // Зберігаємо оригінальні картки"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2370,
+    "text": "                // Завантажуємо прогрес"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2380,
+    "text": "                    document.getElementById('flashcard-mode').innerHTML = '<div class=\"results\"><p>😕 У цьому наборі немає карток. Додайте картки, щоб почати вивчення.</p><a href=\"{{ url_for(\"edit_set\", set_id=set_id) }}\" class=\"restart-btn\">➕ Додати картки</a></div>';"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2387,
+    "text": "                console.error('Помилка завантаження карток:', error);"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2407,
+    "text": "            // Скидаємо стан перевороту"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2413,
+    "text": "            // Кнопки оцінки завжди активні (не блокуються)"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2432,
+    "text": "                // Дійшли до кінця - показуємо результати"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2451,
+    "text": "            // Завжди зберігаємо прогрес (не чекаємо)"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2454,
+    "text": "                saveProgress(currentIndex, true); // Без await - запускаємо в фоні"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2455,
+    "text": "                showToastMessage('✅ Чудово! Картку вивчено!', 'success');"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2458,
+    "text": "                saveProgress(currentIndex, false); // Без await - запускаємо в фоні"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2459,
+    "text": "                showToastMessage('📖 Ви забули цю картку. Спробуйте ще раз!', 'info');"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2461,
+    "text": "                showToastMessage('✅ Ви вже вивчили цю картку!', 'success');"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2463,
+    "text": "                showToastMessage('📖 Спробуйте запам\\'ятати цю картку', 'info');"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2466,
+    "text": "            // Завжди оновлюємо прогрес"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2469,
+    "text": "            // Блокуємо кнопки на час анімації"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2474,
+    "text": "            // Переходимо до наступної картки негайно"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2478,
+    "text": "                    // Примусово скидаємо стан перевороту для нової картки"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2486,
+    "text": "                // Розблоковуємо кнопки"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2504,
+    "text": "            // Підраховуємо прогрес на основі оригінальних карток"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2517,
+    "text": "            document.getElementById('progress-percent').textContent = Math.min(percent, 100); // Обмежуємо 100%"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2536,
+    "text": "                console.error('Помилка збереження прогресу:', error);"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2560,
+    "text": "                        <div class=\"results-meta-small\">Вітаємо! Ви вивчили всі картки!</div>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2565,
+    "text": "                            <span>Точність</span>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2574,
+    "text": "                        <div class=\"results-meta-small\">(${learnedCount} з ${originalCards.length} карток вивчено)</div>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2579,
+    "text": "                            <span>Точність</span>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2582,
+    "text": "                        <div class=\"results-remaining\">📝 Залишилось вивчити: ${remainingCount} карток</div>"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2591,
+    "text": "            // Показуємо тільки невивчені картки"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2595,
+    "text": "                showToastMessage(' Вітаємо! Ви вивчили всі картки!', 'success');"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2599,
+    "text": "            // Створюємо новий масив тільки з невивчених карток"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2602,
+    "text": "            // Скидаємо прогресс для нового раунду"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2606,
+    "text": "            // Оновлюємо інтерфейс"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2725,
+    "text": "        // Завантажуємо картки при старті"
+  },
+  {
+    "path": "templates\\study.html",
+    "line": 2728,
+    "text": "        // Додаємо підтримку клавіш"
+  }
+]

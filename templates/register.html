@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ _('Реєстрація') }} | Flasho</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <span class="logo-icon">≡</span>
+        flasho
+    </div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-toggle-btn" aria-label="{{ _('Меню') }}">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <nav>
+        <a href="{{ url_for('index') }}">{{ _('Головна') }}</a>
+    </nav>
+</header>
+
+<section class="register-section">
+
+    <div class="register-card">
+
+        <h2>{{ _('Створення акаунта') }}</h2>
+
+        <form method="POST" action="{{ url_for('register') }}" id="registerForm">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+
+            <div class="input-group">
+                <input type="text" name="username" required>
+                <label>{{ _('Ім’я користувача') }}</label>
+            </div>
+
+            <div class="input-group">
+                <input type="email" name="email" required>
+                <label>{{ _('Email') }}</label>
+            </div>
+
+            <div class="input-group password-group">
+                <input type="password" name="password" id="password" required minlength="6">
+                <label>{{ _('Пароль') }}</label>
+                <span class="toggle-password" onclick="togglePassword()">👁</span>
+            </div>
+
+            <div class="input-group">
+                <input type="password" name="confirm_password" required>
+                <label>{{ _('Підтвердіть пароль') }}</label>
+            </div>
+
+            <button type="submit" class="register-btn">
+                <span>{{ _('Зареєструватися') }}</span>
+            </button>
+
+        </form>
+
+        <p class="login-link">
+            {{ _('Вже маєте акаунт?') }}
+            <a href="{{ url_for('login') }}">{{ _('Увійти') }}</a>
+        </p>
+
+    </div>
+
+</section>
+
+<script src="{{ url_for('static', filename='register.js') }}"></script>
+</body>
+</html>
